@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9452006197e36d94ca76706e1c934f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 2.5
   target: {fileID: 0}
-  cameraOffsetZ: -12.6
+  cameraOffsetZ: -10
