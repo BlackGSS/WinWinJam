@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -611,6 +611,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 472858436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &800920559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2425787134282665686, guid: ecd15039ab52b6c4095eef6753d78ef9,
+    type: 3}
+  m_PrefabInstance: {fileID: 865006158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &800920561
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800920559}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9e3bed4ed00cba04ca63913bad01ee35, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9e3bed4ed00cba04ca63913bad01ee35, type: 2}
+  - {fileID: 7400000, guid: de7bbb2c516b0ce40aa0a57538a30c3c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &865006158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1035,12 +1058,17 @@ PrefabInstance:
     - target: {fileID: 2425787134282665674, guid: ecd15039ab52b6c4095eef6753d78ef9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.5104084
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2425787134282665674, guid: ecd15039ab52b6c4095eef6753d78ef9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.84547
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425787134282665674, guid: ecd15039ab52b6c4095eef6753d78ef9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2425787134282665684, guid: ecd15039ab52b6c4095eef6753d78ef9,
         type: 3}
@@ -1113,6 +1141,25 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 0bb7df30000e2ed4f829407fe67caf21, type: 2}
+--- !u!1 &1663854335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2425787134282665686, guid: ecd15039ab52b6c4095eef6753d78ef9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1575094626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1663854341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663854335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed0621aededf084bac0a90aa9118181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &1924712644
 PrefabInstance:
   m_ObjectHideFlags: 0
