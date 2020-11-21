@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,9 +25,14 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] Dash dashSkill;
 
 	[Header("Equipment")]
-	[SerializeField] bool headset;
-	[SerializeField] bool boots;
-	[SerializeField] bool cable;
+	[SerializeField] bool headsetEquipment;
+	[SerializeField] bool bootsEquipment;
+	[SerializeField] bool wireEquipment;
+
+	[Header("ObjetosActivar")]
+	[SerializeField] GameObject head;
+	[SerializeField] GameObject[] boots;
+	[SerializeField] GameObject[] wire;
 
 	[SerializeField] CharacterController controller;
 
@@ -39,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
 	//private float FireRate = 0.2f;
 
+	public static Action<BodyPart> onBodyPartGotIt = (BodyPart bodypart) => { };
+
 	private bool LookRight = true;
 
 	public Animator anim;
@@ -46,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 	private void Start()
 	{
 		currentJumpForce = minJumpForce;
+		onBodyPartGotIt += AddBodyPart;
 	}
 
 	private void Update()
@@ -126,46 +135,50 @@ public class PlayerMovement : MonoBehaviour
 
 		if (controller.isGrounded)
 		{
-			if (performingJump && !pressingJumping)
+			if (headsetEquipment)
 			{
-				performingJump = false;
-				dashSkill.onTouchFloor.Invoke();
-			}
+				if (performingJump && !pressingJumping)
+				{
+					performingJump = false;
+					dashSkill.onTouchFloor.Invoke();
+				}
 
-			directionY = 0;
+				directionY = 0;
 
-			//if (boots)
-				canDoubleJump = true;
+				if (bootsEquipment)
+					canDoubleJump = true;
 
-			if (pressingJumping && initializingJump)
-			{
+				if (pressingJumping && initializingJump)
+				{
+					pressingJumping = false;
+					initializingJump = false;
 
-				pressingJumping = false;
-				initializingJump = false;
-
-				directionY = currentJumpForce;
-			}
-			else if (!initializingJump)
-			{
-				currentJumpForce = minJumpForce;
+					directionY = currentJumpForce;
+				}
+				else if (!initializingJump)
+				{
+					currentJumpForce = minJumpForce;
+				}
 			}
 		}
 		else
 		{
-			if (pressingJumping && canDoubleJump)
+			if (headsetEquipment)
 			{
-				pressingJumping = false;
-				directionY = currentJumpForce * doubleJumpMultiplier;
-				canDoubleJump = false;
-			}
-			else if (!canDoubleJump)
-			{
-				pressingJumping = false;
+				if (pressingJumping && canDoubleJump)
+				{
+					pressingJumping = false;
+					directionY = currentJumpForce * doubleJumpMultiplier;
+					canDoubleJump = false;
+				}
+				else if (!canDoubleJump)
+				{
+					pressingJumping = false;
+				}
 			}
 		}
 
 		directionY -= gravity * Time.deltaTime;
-
 		direction.y = directionY;
 
 		controller.Move(direction * speed * Time.deltaTime);
@@ -193,6 +206,41 @@ public class PlayerMovement : MonoBehaviour
 		else if (Input.GetAxis("Horizontal") == 0)
 		{
 			//anim.SetBool("Move", false);
+		}
+	}
+
+	private void AddBodyPart(BodyPart part)
+	{
+		switch (part)
+		{
+			case BodyPart.HEAD:
+
+				print(part);
+				head.SetActive(true);
+				headsetEquipment = true;
+				break;
+
+			case BodyPart.BOOTS:
+
+				for (int i = 0; i < boots.Length; i++)
+				{
+					boots[i].SetActive(true);
+				}
+
+				bootsEquipment = true;
+				break;
+
+			case BodyPart.WIRE:
+
+				for (int i = 0; i < wire.Length; i++)
+				{
+					wire[i].SetActive(true);
+				}
+
+				wireEquipment = true;
+				break;
+
+
 		}
 	}
 
