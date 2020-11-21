@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Glow_2
-  m_Shader: {fileID: -6465566751694194690, guid: 04c01ca32069feb40987726e40fea1da,
+  m_Shader: {fileID: -6465566751694194690, guid: 7875802bd5f3695409c61045439bb933,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ENUM_5442A9AC_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -65,8 +65,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Wireframe_ColorTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - ENUM_5442A9AC: 3
     - Vector1_6C04150A: 0
+    - Vector1_BD6DE493: 1
+    - Vector1_C691CA19: 0
+    - Vector1_CF184A9E: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -86,13 +94,18 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WireframeShader_Diameter: 0
+    - _WireframeShader_Smoothness: 0
+    - _WireframeShader_Thickness: 0.01
+    - _Wireframe_ColorEmissionStrength: 0.2
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - Color_9233FE04: {r: 1.414214, g: 1.148009, b: 0, a: 0}
     - Color_DCB23545: {r: 0.9971306, g: 0, b: 2.899955, a: 0}
     - Vector2_3C883F28: {r: 2.07, g: 1, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.064883545, g: 0.022427911, b: 0.2264151, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Wireframe_Color: {r: 0, g: 0.022081587, b: 2.433572, a: 1}
