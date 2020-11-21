@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Language : MonoBehaviour
 {
-
     public string spanish;
     public string english;
     public string galician;
     public bool isButton;
-    public Toggle toggleSpanish;
-    public Toggle toggleEnglish;
-    public Toggle toggleGalician;
 
-    public GlobalLanguage globalLanguage;
-
-    // Start is called before the first frame update
-
-    private void Awake()
-    {
-        globalLanguage = GameObject.Find("LanguageManager").GetComponent<GlobalLanguage>();
-    }
     void Start()
     {
         NotificationCenter.DefaultCenter().AddObserver(this, "ChangeLanguage_P");
@@ -30,37 +19,37 @@ public class Language : MonoBehaviour
 
     public void ChangeLanguage_P ()
     {
-        if (globalLanguage.ReturnLanguage () == "Spanish")
+        if (GlobalLanguage.Instance.ReturnLanguage () == "Spanish")
         {
             if (isButton)
             {
-                GetComponentInChildren<Text>().text = spanish;
+                GetComponentInChildren<TextMeshProUGUI>().text = spanish;
             }
             else
             {
-                GetComponent<Text>().text = spanish;
+                GetComponent<TextMeshProUGUI>().text = spanish;
             }
         }
-        if (globalLanguage.ReturnLanguage() == "English")
+        if (GlobalLanguage.Instance.ReturnLanguage() == "English")
         {
             if (isButton)
             {
-                GetComponentInChildren<Text>().text = english;
+                GetComponentInChildren<TextMeshProUGUI>().text = english;
             }
             else
             {
-                GetComponent<Text>().text = english;
+                GetComponent<TextMeshProUGUI>().text = english;
             }
         }
-        if (globalLanguage.ReturnLanguage() == "Galician")
+        if (GlobalLanguage.Instance.ReturnLanguage() == "Galician")
         {
             if (isButton)
             {
-                GetComponentInChildren<Text>().text = galician;
+                GetComponentInChildren<TextMeshProUGUI>().text = galician;
             }
             else
             {
-                GetComponent<Text>().text = galician;
+                GetComponent<TextMeshProUGUI>().text = galician;
             }
         }
     }

@@ -7,7 +7,7 @@ using TMPro;
 public class VictoryUIManager : MonoBehaviourUI
 {
     public Image imageSprite;
-    public TextMeshPro textW;
+    public TextMeshProUGUI textW;
 
     void Init()
     {

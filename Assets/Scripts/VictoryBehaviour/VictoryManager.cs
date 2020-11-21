@@ -6,7 +6,7 @@ using UnityEngine;
 public class VictoryManager : MonoBehaviour
 {
     [SerializeField] VictoryData[] victories;
-    [SerializeField] VictoryUIManager victoryUI;
+    [SerializeField] GameObject victoryUI;
 
     public static Action<int> onVictoryAchieve = (int id) => { };
 
@@ -17,6 +17,8 @@ public class VictoryManager : MonoBehaviour
 
     private void VictoryAchieved(int victoryID)
     {
-        victoryUI.Show(victories[victoryID]);
+        GameObject victoryI = Instantiate(victoryUI);
+
+        victoryI.GetComponent<VictoryUIManager>().Show(victories[victoryID]);
     }
 }

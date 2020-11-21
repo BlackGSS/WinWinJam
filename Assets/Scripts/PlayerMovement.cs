@@ -23,11 +23,16 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] int dashMultiplier = 1;
 	[SerializeField] Dash dashSkill;
 
+	[Header("Equipment")]
+	[SerializeField] bool headset;
+	[SerializeField] bool boots;
+	[SerializeField] bool cable;
+
 	[SerializeField] CharacterController controller;
 
 	private float directionY;
 	private Vector3 direction;
-	private bool canDoubleJump;
+	private bool canDoubleJump = false;
 
 	//public LayerMask FloorMask, WallMask;
 	//public GameObject Bullet;
@@ -128,7 +133,9 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 			directionY = 0;
-			canDoubleJump = true;
+
+			//if (boots)
+				canDoubleJump = true;
 
 			if (pressingJumping && initializingJump)
 			{
