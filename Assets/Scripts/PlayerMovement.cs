@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] float fixZOffset = 0.05f;
 	bool fixingZ = false;
-    [SerializeField] bool changingLevel;
+	[SerializeField] bool changingLevel;
 
 	//public LayerMask FloorMask, WallMask;
 	//public GameObject Bullet;
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		currentJumpForce = minJumpForce;
+		//currentJumpForce = minJumpForce;
 		onBodyPartGotIt += AddBodyPart;
 		onFallingFromLevel += FallingFromLevel;
 		onLevelArrive += LevelArrived;
@@ -77,43 +77,50 @@ public class PlayerMovement : MonoBehaviour
 	{
 		DirDetect();
 
-        if (!changingLevel)
-        {
-            if (!performingDash)
-                Movement();
-            else
-                DashMovement();
-        }
-        else
-        {
-            transform.Translate((transform.position - nextPos).normalized * -Time.deltaTime * 10, Space.World);
-            if ((transform.position - nextPos).y >= -0.1f && (transform.position - nextPos).y <= 0.1f)
-            {
-                changingLevel = false;
-                Debug.Log("SALIR!!!!!!!!!!!!!!");
-            }
-        }
-        //ShootSystem();
-    }
+		if (!changingLevel)
+		{
+			if (!performingDash)
+				Movement();
+			else
+				DashMovement();
+		}
+		else
+		{
+			transform.Translate((transform.position - nextPos).normalized * -Time.deltaTime * 10, Space.World);
+			if ((transform.position - nextPos).y >= -0.1f && (transform.position - nextPos).y <= 0.1f)
+			{
+				changingLevel = false;
+				Debug.Log("SALIR!!!!!!!!!!!!!!");
+			}
+		}
+		//ShootSystem();
+	}
 
 	private void Inputs()
 	{
 		#region Jump
 
-		if (Input.GetButton("Jump") && controller.isGrounded)
+		if (Input.GetButtonDown("Jump"))
 		{
-			initializingJump = true;
+			pressingJumping = true;
 
+			if (!performingJump)
+				performingJump = true;
+			//if (currentJumpForce < maxJumpForce)
+			//	currentJumpForce += 0.05f;
+		}
+
+		if (Input.GetButton("Jump"))
+		{
 			if (currentJumpForce < maxJumpForce)
 				currentJumpForce += 0.05f;
 		}
 
-		if (Input.GetButtonUp("Jump"))
-		{
-			anim.SetBool("Jump", true);
-			pressingJumping = true;
-			performingJump = true;
-		}
+		//if (Input.GetButtonUp("Jump"))
+		//{
+		//	anim.SetBool("Jump", true);
+		//	pressingJumping = true;
+		//}
 
 		#endregion
 
@@ -162,25 +169,26 @@ public class PlayerMovement : MonoBehaviour
 				if (performingJump && !pressingJumping)
 				{
 					performingJump = false;
-					anim.SetBool("Jump", false);
+
+					if (anim.GetBool("Jump"))
+						anim.SetBool("Jump", false);
 
 					dashSkill.onTouchFloor.Invoke();
+					currentJumpForce = minJumpForce;
+
 				}
 
 				directionY = 0;
 
-				if (bootsEquipment)
-					canDoubleJump = true;
-
-				if (pressingJumping && initializingJump)
+				if (pressingJumping)
 				{
+					anim.SetBool("Jump", true);
 					pressingJumping = false;
-					initializingJump = false;
 
 					directionY = currentJumpForce;
-				}
-				else if (!initializingJump)
-				{
+					if (bootsEquipment)
+						canDoubleJump = true;
+
 					currentJumpForce = minJumpForce;
 				}
 				//anim.SetBool("Land", true);
@@ -190,15 +198,16 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (headsetEquipment)
 			{
+				print("Puedo hacer doble salto? " + canDoubleJump);
 				if (pressingJumping && canDoubleJump)
 				{
-					pressingJumping = false;
+					print("Entring");
+					if (!anim.GetBool("Jump"))
+						anim.SetBool("Jump", true);
+
 					directionY = currentJumpForce * doubleJumpMultiplier;
-					canDoubleJump = false;
-				}
-				else if (!canDoubleJump)
-				{
 					pressingJumping = false;
+					canDoubleJump = false;
 				}
 			}
 		}
