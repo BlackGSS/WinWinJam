@@ -47,13 +47,18 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float fixZOffset = 0.05f;
 	bool fixingZ = false;
 	[SerializeField] bool changingLevel;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip walkClip;
+    [SerializeField] AudioClip jumClip;
+    [SerializeField] AudioClip landClip;
+    [SerializeField] AudioClip dashClip;
 
-	//public LayerMask FloorMask, WallMask;
-	//public GameObject Bullet;
+    //public LayerMask FloorMask, WallMask;
+    //public GameObject Bullet;
 
-	//private float FireRate = 0.2f;
+    //private float FireRate = 0.2f;
 
-	public static Action<BodyPart> onBodyPartGotIt = (BodyPart bodypart) => { };
+    public static Action<BodyPart> onBodyPartGotIt = (BodyPart bodypart) => { };
 	public static Action<Transform> onFallingFromLevel = (Transform point) => { };
 	public static Action onLevelArrive = () => { };
 
@@ -67,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 		onBodyPartGotIt += AddBodyPart;
 		onFallingFromLevel += FallingFromLevel;
 		onLevelArrive += LevelArrived;
+        audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -101,6 +107,13 @@ public class PlayerMovement : MonoBehaviour
 		}
 		//ShootSystem();
 	}
+
+    private void PlaySound(AudioClip clip)
+    {
+        audioSource.Stop();
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
 
 	private void Inputs()
 	{
@@ -144,7 +157,8 @@ public class PlayerMovement : MonoBehaviour
 						if (dashMovement != Vector3.zero)
 						{
 							print("Dash");
-							direction += dashMovement;
+                            PlaySound(dashClip);
+                            direction += dashMovement;
 						}
 					}
 					else
@@ -152,13 +166,13 @@ public class PlayerMovement : MonoBehaviour
 						Vector3 dashMovement = dashSkill.GetPositionToDash(performingJump);
 						if (dashMovement != Vector3.zero)
 						{
-							print("Dash");
+                            PlaySound(dashClip);
+                            print("Dash");
 							direction += dashMovement;
 						}
 					}
 
-
-				}
+                }
 			}
 
 		#endregion
@@ -178,8 +192,11 @@ public class PlayerMovement : MonoBehaviour
 				{
 					performingJump = false;
 
-					if (anim.GetBool("Jump"))
-						anim.SetBool("Jump", false);
+                    if (anim.GetBool("Jump"))
+                    {
+                        anim.SetBool("Jump", false);
+                        PlaySound(landClip);
+                    }
 
 					dashSkill.onTouchFloor.Invoke();
 					currentJumpForce = minJumpForce;
@@ -191,6 +208,7 @@ public class PlayerMovement : MonoBehaviour
 				if (pressingJumping)
 				{
 					anim.SetBool("Jump", true);
+                    PlaySound(jumClip);
 					pressingJumping = false;
 
 					directionY = currentJumpForce;
@@ -215,7 +233,8 @@ public class PlayerMovement : MonoBehaviour
 					if (!anim.GetBool("Jump"))
 						anim.SetBool("Jump", true);
 
-					directionY = currentJumpForce * doubleJumpMultiplier;
+                    PlaySound(jumClip);
+                    directionY = currentJumpForce * doubleJumpMultiplier;
 					pressingJumping = false;
 					canDoubleJump = false;
 				}
@@ -254,13 +273,13 @@ public class PlayerMovement : MonoBehaviour
 			anim.SetBool("Walk", true);
 			transform.rotation = Quaternion.Euler(0, 0, 0);
 			LookRight = true;
-		}
+        }
 		else if (Input.GetAxis("Horizontal") < 0)
 		{
 			anim.SetBool("Walk", true);
 			transform.rotation = Quaternion.Euler(0, 180, 0);
 			LookRight = false;
-		}
+        }
 		else if (Input.GetAxis("Horizontal") == 0)
 		{
 			anim.SetBool("Walk", false);
