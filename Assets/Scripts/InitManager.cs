@@ -7,9 +7,16 @@ using System;
 
 public class InitManager : MonoBehaviour
 {
+    public VolumeProfile startProfile;
     public VolumeProfile newProfile;
 
     public static Action onHeadTake = () => { };
+
+    private void Awake()
+    {
+        GetComponent<Volume>().profile = startProfile;
+
+    }
 
     private void Start()
     {

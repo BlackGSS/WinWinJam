@@ -149,7 +149,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 0bb7df30000e2ed4f829407fe67caf21, type: 2}
+  sharedProfile: {fileID: 11400000, guid: aab275be2526a414c8d102e390f1c021, type: 2}
 --- !u!114 &767059720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781347d533d3f674cb66252fd593ca66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startProfile: {fileID: 11400000, guid: 0bb7df30000e2ed4f829407fe67caf21, type: 2}
   newProfile: {fileID: 11400000, guid: aab275be2526a414c8d102e390f1c021, type: 2}

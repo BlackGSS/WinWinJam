@@ -1133,8 +1133,8 @@ MonoBehaviour:
     me, in order for me to be better. But it just didn't work. I was about to give
     up, until I found them...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9d935d00fb7beb46acdc6650bf49704, type: 2}
-  m_sharedMaterial: {fileID: 2150397637752072520, guid: e9d935d00fb7beb46acdc6650bf49704,
+  m_fontAsset: {fileID: 11400000, guid: fd4297907d228d6408a9fb19c39d8a5d, type: 2}
+  m_sharedMaterial: {fileID: 8667931512891171964, guid: fd4297907d228d6408a9fb19c39d8a5d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
