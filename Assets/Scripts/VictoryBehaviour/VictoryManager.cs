@@ -52,7 +52,7 @@ public class VictoryManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(40f);
 
-		//SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene("Menu");
 
 	}
 }
