@@ -37,8 +37,11 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] CharacterController controller;
 
 	private float directionY;
-	private Vector3 direction;
+	[SerializeField] Vector3 direction;
 	private bool canDoubleJump = false;
+
+	[SerializeField] float fixZOffset = 0.05f;
+	bool fixingZ = false;
 
 	//public LayerMask FloorMask, WallMask;
 	//public GameObject Bullet;
@@ -89,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonUp("Jump"))
 		{
+			anim.SetBool("Jump", true);
 			pressingJumping = true;
 			performingJump = true;
 		}
@@ -140,6 +144,8 @@ public class PlayerMovement : MonoBehaviour
 				if (performingJump && !pressingJumping)
 				{
 					performingJump = false;
+					anim.SetBool("Jump", false);
+
 					dashSkill.onTouchFloor.Invoke();
 				}
 
@@ -159,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
 				{
 					currentJumpForce = minJumpForce;
 				}
+				//anim.SetBool("Land", true);
 			}
 		}
 		else
@@ -178,10 +185,24 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		directionY -= gravity * Time.deltaTime;
+		if (!controller.isGrounded)
+			directionY -= gravity * Time.deltaTime;
+
 		direction.y = directionY;
 
+		if ((transform.position.z < -fixZOffset || transform.position.z > fixZOffset) && controller.isGrounded)
+		{
+			direction.z -= fixZOffset;
+			fixingZ = true;
+		}
+
 		controller.Move(direction * speed * Time.deltaTime);
+
+		if ((transform.position.z > -fixZOffset && transform.position.z < fixZOffset) && fixingZ)
+		{
+			fixingZ = false;
+			transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+		}
 	}
 
 	private void DashMovement()
@@ -193,19 +214,19 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Input.GetAxis("Horizontal") > 0)
 		{
-			//anim.SetBool("Move", true);
-			//transform.rotation = Quaternion.Euler(0, 0, 0);
+			anim.SetBool("Walk", true);
+			transform.rotation = Quaternion.Euler(0, 0, 0);
 			LookRight = true;
 		}
 		else if (Input.GetAxis("Horizontal") < 0)
 		{
-			//anim.SetBool("Move", true);
-			//transform.rotation = Quaternion.Euler(0, 180, 0);
+			anim.SetBool("Walk", true);
+			transform.rotation = Quaternion.Euler(0, 180, 0);
 			LookRight = false;
 		}
 		else if (Input.GetAxis("Horizontal") == 0)
 		{
-			//anim.SetBool("Move", false);
+			anim.SetBool("Walk", false);
 		}
 	}
 
