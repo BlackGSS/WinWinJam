@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866254980}
-  - component: {fileID: 6954659652342573615}
+  - component: {fileID: 74570507}
   m_Layer: 11
   m_Name: Panel
   m_TagString: Untagged
@@ -440,7 +440,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0000019073486}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &6954659652342573615
+--- !u!225 &74570507
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -752,10 +752,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  minJumpForce: 1.5
+  minJumpForce: 2.75
   currentJumpForce: 0
-  maxJumpForce: 2.5
+  maxJumpForce: 3.75
   gravity: 8.5
+  fallSpeed: 80
   initializingJump: 0
   pressingJumping: 0
   performingJump: 0
@@ -763,9 +764,9 @@ MonoBehaviour:
   performingDash: 0
   dashMultiplier: 2
   dashSkill: {fileID: 7367418173356184942}
-  headsetEquipment: 1
-  bootsEquipment: 1
-  wireEquipment: 1
+  headsetEquipment: 0
+  bootsEquipment: 0
+  wireEquipment: 0
   head: {fileID: 5506348644447358485}
   boots:
   - {fileID: 369054232477308795}
@@ -805,7 +806,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.5
-  m_Radius: 0.5
+  m_Radius: 0.34
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

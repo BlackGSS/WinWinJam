@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float maxJumpForce = 5f;
 	[SerializeField] float gravity;
 
+	[SerializeField] float fallSpeed = 10f;
+
 	[Header("Jump Ability")]
 	[SerializeField] bool initializingJump;
 	[SerializeField] bool pressingJumping;
@@ -87,8 +89,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else
 		{
-			transform.Translate((transform.position - nextPos).normalized * -Time.deltaTime * 10, Space.World);
-			if ((transform.position - nextPos).y >= -0.1f && (transform.position - nextPos).y <= 0.1f)
+			transform.Translate((transform.position - nextPos).normalized * -Time.deltaTime * fallSpeed, Space.World);
+			if ((transform.position - nextPos).y >= -3f && (transform.position - nextPos).y <= 3f)
 			{
 				changingLevel = false;
 				Debug.Log("SALIR!!!!!!!!!!!!!!");
@@ -104,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			pressingJumping = true;
+			currentJumpForce = minJumpForce;
 
 			if (!performingJump)
 				performingJump = true;
@@ -189,8 +192,6 @@ public class PlayerMovement : MonoBehaviour
 					directionY = currentJumpForce;
 					if (bootsEquipment)
 						canDoubleJump = true;
-
-					currentJumpForce = minJumpForce;
 				}
 				else
 				{
