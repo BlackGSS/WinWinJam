@@ -85,7 +85,10 @@ public class PlayerMovement : MonoBehaviour
 			if (!performingDash)
 				Movement();
 			else
-				DashMovement();
+			{
+				if (wireEquipment)
+					DashMovement();
+			}
 		}
 		else
 		{
@@ -130,32 +133,33 @@ public class PlayerMovement : MonoBehaviour
 
 		#region Dash
 
-		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			if (!performingDash)
+		if (wireEquipment)
+			if (Input.GetKeyDown(KeyCode.LeftShift))
 			{
-				if (!performingJump && !controller.isGrounded)
+				if (!performingDash)
 				{
-					Vector3 dashMovement = dashSkill.GetPositionToDash(true);
-					if (dashMovement != Vector3.zero)
+					if (!performingJump && !controller.isGrounded)
 					{
-						print("Dash");
-						direction += dashMovement;
+						Vector3 dashMovement = dashSkill.GetPositionToDash(true);
+						if (dashMovement != Vector3.zero)
+						{
+							print("Dash");
+							direction += dashMovement;
+						}
 					}
-				}
-				else
-				{
-					Vector3 dashMovement = dashSkill.GetPositionToDash(performingJump);
-					if (dashMovement != Vector3.zero)
+					else
 					{
-						print("Dash");
-						direction += dashMovement;
+						Vector3 dashMovement = dashSkill.GetPositionToDash(performingJump);
+						if (dashMovement != Vector3.zero)
+						{
+							print("Dash");
+							direction += dashMovement;
+						}
 					}
-				}
 
 
+				}
 			}
-		}
 
 		#endregion
 	}
