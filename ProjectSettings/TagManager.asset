@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - PlayerPiece
+  - AudioGeneral
   layers:
   - Default
   - TransparentFX
