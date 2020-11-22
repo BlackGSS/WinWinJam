@@ -1230,7 +1230,10 @@ MonoBehaviour:
     they didn't know how to deal with the fact that I was struggling, so they pressured
     me, in order for me to be better. But it just didn't work. I was about to give
     up, until I found them...
-  galician: 
+  galician: "Non sab\xEDa qu\xE9 facer, era horrible e sent\xEDame como a merda.
+    Non sab\xEDa nin como falar coa xente. Os meus pais quer\xEDanme, pero non entend\xEDan
+    que estaba a sufrir, e a s\xFAa soluci\xF3n era presionarme; para que fose mellor.
+    Non funcionou, claro, e estaba a piques de renderme...ata que os atopei."
   isButton: 0
 --- !u!1 &808184993
 GameObject:

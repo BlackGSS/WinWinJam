@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1291,9 +1291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e289b8f8c1815fa4981bec23d81f6070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spanish: CREDITOS
+  spanish: "CR\xC9DITOS"
   english: CREDITS
-  galician: CREDITOS
+  galician: "CR\xCBDITOS"
   isButton: 1
 --- !u!1 &484432402
 GameObject:
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spanish: Empezar
   english: Start
-  galician: Gallego
+  galician: Comezar
   isButton: 1
 --- !u!1 &1467122212
 GameObject:
@@ -2640,7 +2640,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITS
+  m_text: "Telaba team:\r\n\r\nAlexandre Gonz\xE1lez \r\n\r\nAnxo Varela\r\n\r\nDavid
+    Neira\r\n\r\nEsther Insua\r\n\r\nMiguel L\xF3pez\r\n\r\nNathan Pedre\xF1o\r\n\nAsset
+    Credits:\n\nMattheW - Pacman Machine\n\nChris Sweetwood - Nintendo cart\n\nDanny_P3D
+    - Gameboy Original\n\nMichael Zhang - City\n\n[Trance] - Eminence - Tanpopo [Monstercat
+    Release]\n\n[Trance] - Ephixa - Trance Chords [Monstercat Release]\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd4297907d228d6408a9fb19c39d8a5d, type: 2}
   m_sharedMaterial: {fileID: 8667931512891171964, guid: fd4297907d228d6408a9fb19c39d8a5d,
@@ -2668,8 +2672,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3155,9 +3159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e289b8f8c1815fa4981bec23d81f6070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spanish: Creditos
+  spanish: "Cr\xE9ditos"
   english: Credits
-  galician: Creditos
+  galician: "Cr\xE9ditos"
   isButton: 1
 --- !u!114 &1966621749
 MonoBehaviour:
