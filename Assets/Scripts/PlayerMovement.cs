@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		//currentJumpForce = minJumpForce;
+		currentJumpForce = minJumpForce;
 		onBodyPartGotIt += AddBodyPart;
 		onFallingFromLevel += FallingFromLevel;
 		onLevelArrive += LevelArrived;
@@ -69,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
-		Inputs();
+		if (headsetEquipment)
+			Inputs();
 	}
 
 	// Update is called once per frame
@@ -189,6 +190,10 @@ public class PlayerMovement : MonoBehaviour
 					if (bootsEquipment)
 						canDoubleJump = true;
 
+					currentJumpForce = minJumpForce;
+				}
+				else
+				{
 					currentJumpForce = minJumpForce;
 				}
 				//anim.SetBool("Land", true);
