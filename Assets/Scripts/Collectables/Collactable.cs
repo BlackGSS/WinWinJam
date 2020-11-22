@@ -8,6 +8,11 @@ public class Collactable : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clip;
 
+    private void Start()
+    {
+        audioSource = GameObject.FindGameObjectWithTag("AudioGeneral").GetComponent<AudioSource>();
+    }
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
