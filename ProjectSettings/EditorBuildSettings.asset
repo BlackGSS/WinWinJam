@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: ba71e07542ab07b4f94bb0ddf2353bd9
   - enabled: 1
-    path: Assets/Scenes/ChargingScene.unity
-    guid: b49a28c426ce1a24e90fec4b1d87d8cb
-  - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 730109cfc4f0d874585199e197ffb796
   m_configObjects: {}
