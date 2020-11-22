@@ -6,19 +6,9 @@ using TMPro;
 
 public class VictoryUIManager : MonoBehaviourUI
 {
-    public Image imageSprite;
-    public TextMeshProUGUI textW;
+	public Image imageSprite;
+	public TextMeshProUGUI textW;
 
-    void Init()
-    {
-        Hide();
-    }
-
-    public void Show(VictoryData data)
-    {
-        imageSprite.sprite = data.imageWin;
-        textW.text = data.textWin;
-
-        Show();
-    }
+	public VictoryData victory;
+	
 }

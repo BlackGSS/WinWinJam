@@ -7,5 +7,7 @@ using UnityEngine.UI;
 public class VictoryData : ScriptableObject
 {
     public Sprite imageWin;
-    public string textWin;
+    public string textWinSpa;
+    public string textWinEng;
+    public string textWinGal;
 }

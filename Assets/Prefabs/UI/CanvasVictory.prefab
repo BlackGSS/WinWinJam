@@ -147,8 +147,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -320,8 +320,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelToShow: {fileID: 4865516570385020911}
+  timeToFade: 1
   imageSprite: {fileID: 2521543862954743778}
   textW: {fileID: 2231867102470466426}
+  victory: {fileID: 0}
 --- !u!1 &4865516570385020911
 GameObject:
   m_ObjectHideFlags: 0

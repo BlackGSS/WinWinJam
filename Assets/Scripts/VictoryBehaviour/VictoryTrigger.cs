@@ -5,11 +5,12 @@ using UnityEngine;
 public class VictoryTrigger : MonoBehaviour
 {
 	[SerializeField] int id;
-	float delayToWin = 0.5f;
+	float delayToWin = 0.1f;
 
 	private void OnTriggerEnter(Collider other)
 	{
-		StartCoroutine(LaunchWin());
+		if (other.tag == "Player")
+			StartCoroutine(LaunchWin());
 
 	}
 
@@ -18,5 +19,7 @@ public class VictoryTrigger : MonoBehaviour
 		yield return new WaitForSeconds(delayToWin);
 
 		VictoryManager.onVictoryAchieve.Invoke(id);
+
+		Destroy(gameObject);
 	}
 }

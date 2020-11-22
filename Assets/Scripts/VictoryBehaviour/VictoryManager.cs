@@ -5,20 +5,29 @@ using UnityEngine;
 
 public class VictoryManager : MonoBehaviour
 {
-    [SerializeField] VictoryData[] victories;
-    [SerializeField] GameObject victoryUI;
+	[SerializeField] VictoryData[] victories;
 
-    public static Action<int> onVictoryAchieve = (int id) => { };
+	public PlayerMovement player;
 
-    private void Awake()
-    {
-        onVictoryAchieve += VictoryAchieved;
-    }
+	public static Action<int> onVictoryAchieve = (int id) => { };
 
-    private void VictoryAchieved(int victoryID)
-    {
-        GameObject victoryI = Instantiate(victoryUI);
+	private void Awake()
+	{
+		onVictoryAchieve += VictoryAchieved;
+	}
 
-        victoryI.GetComponent<VictoryUIManager>().Show(victories[victoryID]);
-    }
+	private void VictoryAchieved(int victoryID)
+	{
+		if (player.bootsEquipment)
+			victoryID = 1;
+
+		if (GlobalLanguage.CurrentLanguage == "English")
+			ToastManager.Instance.SetText(victories[victoryID].textWinEng, 20f);
+
+		if (GlobalLanguage.CurrentLanguage == "Spanish")
+			ToastManager.Instance.SetText(victories[victoryID].textWinSpa, 20f);
+
+		if (GlobalLanguage.CurrentLanguage == "Galician")
+			ToastManager.Instance.SetText(victories[victoryID].textWinGal, 20f);
+	}
 }

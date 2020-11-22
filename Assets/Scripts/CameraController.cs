@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 	{
 		if (Input.GetAxis("Vertical") < 0)
 		{
-			transform.position = Vector3.Lerp(transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 10), 2 * Time.deltaTime);
+			transform.position = Vector3.Lerp(transform.position, new Vector2(target.transform.position.x, target.transform.position.y), 2 * Time.deltaTime);
 		}
 
 		finalPos = new Vector3(target.transform.position.x + 1, target.transform.position.y + 7, cameraOffsetZ);

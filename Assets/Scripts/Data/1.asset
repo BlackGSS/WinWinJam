@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   imageWin: {fileID: 0}
-  textWin: He ganado bc potato 1
+  textWinSpa: 
+  textWinEng: I just got the gimpse of it, it felt good and all, but I had more important
+    things to do. From time to time, I would waste some of my time reliving my childhood
+    by interacting with them and I had some fun, but that time it's long forgotten
+    now. It's ok either way, I am kinda happy now.
+  textWinGal: 

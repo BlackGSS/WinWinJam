@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   imageWin: {fileID: 0}
-  textWin: He ganado bc potato 3
+  textWinSpa: 
+  textWinEng: I regret nothing. I can say I've lived my life to the fullest. There
+    were always hard times and shit happened, but it was absolutely worth it. Of
+    course you can't see that while you are on the road, cause, you know, you don't
+    actually know where you are going, specially if the road is unknown. I took my
+    chances, and I was absolutely terrified, but I decided to walk that path and
+    I am proud of it. I love the view from here.
+  textWinGal: 

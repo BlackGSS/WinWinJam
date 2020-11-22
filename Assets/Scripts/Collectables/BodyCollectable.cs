@@ -1,24 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public enum BodyPart { HEAD = 0, WIRE, BOOTS }
-public class BodyCollectable : MonoBehaviour
+public class BodyCollectable : Collactable
 {
-    [SerializeField] BodyPart category;
-    [SerializeField] GameObject father;
+	[SerializeField] BodyPart category;
+	[SerializeField] GameObject father;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            PlayerMovement.onBodyPartGotIt.Invoke(category);
-            gameObject.SetActive(false);
-        }
-    }
+	protected override void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Player")
+		{
+			PlayerMovement.onBodyPartGotIt.Invoke(category);
 
-    private void OnDisable()
-    {
-        Destroy(father);
-    }
+			switch (category)
+			{
+
+				case BodyPart.HEAD:
+
+					InitManager.onHeadTake.Invoke();
+
+					break;
+
+			}
+
+			base.OnTriggerEnter(other);
+		}
+	}
+
+	protected override void OnDisable()
+	{
+		base.OnDisable();
+	}
 }

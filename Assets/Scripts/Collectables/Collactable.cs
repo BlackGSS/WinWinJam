@@ -8,7 +8,7 @@ public class Collactable : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clip;
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -20,7 +20,7 @@ public class Collactable : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         Destroy(gameObject);
     }

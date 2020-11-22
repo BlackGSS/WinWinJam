@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
-	[SerializeField] MonoBehaviourUI intro1;
-	[SerializeField] MonoBehaviourUI intro2;
+	[SerializeField] MonoBehaviourUI[] intros;
+
+	public int currentScene = 0;
 
 	private void Awake()
 	{
-		intro1.Init();
-		intro2.Init();
+		for (int i = 0; i < intros.Length; i++)
+		{
+			intros[i].Init();
+		}
 	}
 
 	// Start is called before the first frame update
@@ -23,12 +26,15 @@ public class IntroManager : MonoBehaviour
 	IEnumerator DelayToIni()
 	{
 		yield return new WaitForSeconds(0.3f);
-		intro1.Show();
+		intros[0].Show();
 	}
 
 	public void NextScreen()
 	{
-		intro1.Hide(() => intro2.Show());
+		int nextScene = currentScene + 1;
+
+		intros[currentScene].Hide(() => intros[nextScene].Show());
+		currentScene++;
 	}
 
 	public void NextScene()
