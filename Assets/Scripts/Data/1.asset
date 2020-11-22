@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   imageWin: {fileID: 0}
-  textWinSpa: 
+  textWinSpa: "Prob\xE9 lo justo, estaba guay y tal, pero no fue hasta m\xE1s tarde
+    que descubr\xED que ten\xEDa una nueva pasi\xF3n. De vez en cuando, le dedico
+    algo de tiempo para revivir esa sensaci\xF3n y pasar un buen rato, aunque cada
+    vez tengo menos tiempo para eso. A\xFAn as\xED juego a veces y me hace feliz."
   textWinEng: I just got the gimpse of it, it felt good and all, but I had more important
     things to do. From time to time, I would waste some of my time reliving my childhood
     by interacting with them and I had some fun, but that time it's long forgotten
     now. It's ok either way, I am kinda happy now.
-  textWinGal: 
+  textWinGal: "Probei o xusto, estaba guay e tal, pero non foi ata m\xE1is tarde
+    que descubr\xEDn que ti\xF1a unha nova paix\xF3n. De cando en vez, ded\xEDcolle
+    algo de tempo para revivir esa sensaci\xF3n e pasar un bo intre, a\xEDnda que
+    cada vez te\xF1o menos tempo para iso. A\xEDnda as\xED xogo \xE1s veces e faime
+    feliz."

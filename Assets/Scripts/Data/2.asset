@@ -13,10 +13,19 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   imageWin: {fileID: 0}
-  textWinSpa: 
+  textWinSpa: "Wow... Fue genial encontrarlos. Me permitieron liberar mi mente amenudo
+    y a\xFAn sigo jugando muy a menudo. Incluso conoc\xED a mi pareja gracias a ellos,
+    es una pasada conocer a alguien que realmente te entienda. Desafortunadamente
+    no fui capaz de dedicarme a ellos, es un mundo muy duro y encontr\xE9 otra pasi\xF3n,
+    pero estoy muy agradecido de haber conocido el mundo de los videojuegos"
   textWinEng: Ahhh...it was so good finding those. They allowed me to free my mind
     often and I still interact with them oftenly. I even meet my partner thanks to
     them, it's really awesome finding someone that actually complements you. Unfortunately,
     I wasn't able to dedicate myself to them. It was really hard and I found my passion
     elsewhere, but I am really grateful that they appeared in my life.
-  textWinGal: 
+  textWinGal: " Wow... Foi xenial atopalos. Permit\xEDronme liberar a mi\xF1a mente
+    a menudo e a\xEDnda sigo xogando moi a mi\xFAdo. Mesmo co\xF1ec\xEDn \xE1 mi\xF1a
+    parella grazas a eles, \xE9 unha pasada co\xF1ecer a algu\xE9n que realmente
+    che entenda. Desafortunadamente non fun capaz de dedicarme a eles, \xE9 un mundo
+    moi duro e atopei outra paix\xF3n, pero estou moi agradecido de co\xF1ecer o
+    mundo dos videoxogos"
