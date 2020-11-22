@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] float fixZOffset = 0.05f;
 	bool fixingZ = false;
-	bool changingLevel;
+    [SerializeField] bool changingLevel;
 
 	//public LayerMask FloorMask, WallMask;
 	//public GameObject Bullet;
@@ -77,16 +77,24 @@ public class PlayerMovement : MonoBehaviour
 	{
 		DirDetect();
 
-		if (!changingLevel)
-		{
-			if (!performingDash)
-				Movement();
-			else
-				DashMovement();
-		}
-
-		//ShootSystem();
-	}
+        if (!changingLevel)
+        {
+            if (!performingDash)
+                Movement();
+            else
+                DashMovement();
+        }
+        else
+        {
+            transform.Translate((transform.position - nextPos).normalized * -Time.deltaTime * 10, Space.World);
+            if ((transform.position - nextPos).y >= -0.1f && (transform.position - nextPos).y <= 0.1f)
+            {
+                changingLevel = false;
+                Debug.Log("SALIR!!!!!!!!!!!!!!");
+            }
+        }
+        //ShootSystem();
+    }
 
 	private void Inputs()
 	{
@@ -279,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
 		changingLevel = true;
 		nextPos = point.position;
 
-		transform.position = Vector3.Lerp(transform.position, nextPos, 1000f);
+		//transform.position = Vector3.Lerp(transform.position, nextPos, 1000f);
 
 		//StartCoroutine(GoingToLevel(point.position));
 	}
