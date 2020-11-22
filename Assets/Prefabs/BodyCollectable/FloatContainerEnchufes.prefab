@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enchufes
       objectReference: {fileID: 0}
+    - target: {fileID: 4370674341555263772, guid: 1f05a50155fdedb4e9e12e5fdf9e1023,
+        type: 3}
+      propertyPath: father
+      value: 
+      objectReference: {fileID: 2343137471720323575}
     - target: {fileID: 4370674341555263774, guid: 1f05a50155fdedb4e9e12e5fdf9e1023,
         type: 3}
       propertyPath: m_LocalPosition.x

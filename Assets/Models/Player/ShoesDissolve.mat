@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wall Paint5
+  m_Name: ShoesDissolve
   m_Shader: {fileID: -6465566751694194690, guid: 0370a5d23fc291d4cb449a43a25eb4ca,
     type: 3}
   m_ShaderKeywords: 
@@ -79,7 +79,7 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _CutoffHeight: -1.5
+    - _CutoffHeight: 3.012125
     - _DstBlend: 0
     - _EdgeWidth: 0.04
     - _EnvironmentReflections: 1
