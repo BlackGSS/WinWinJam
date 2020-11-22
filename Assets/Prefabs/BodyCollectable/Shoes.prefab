@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4253592819455718129}
   - component: {fileID: 4253592819455718128}
   - component: {fileID: 4253592819455718143}
+  - component: {fileID: 8528458972140231754}
   m_Layer: 0
   m_Name: Shoes
   m_TagString: Untagged
@@ -204,7 +205,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90e0d42dca80b34ba75f1ff319ab2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 0
+  audioSource: {fileID: 0}
+  clip: {fileID: 0}
   category: 2
+  father: {fileID: 0}
+  dissolveMat: {fileID: 0}
+  noiseStrength: 1.5
+  objectHeight: 1
+  maxHeight: 3
+  minHeight: -1.5
+  height: 0
+  mesh: {fileID: 0}
+  mesh2: {fileID: 0}
 --- !u!65 &4253592819455718143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -218,3 +231,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2663097, y: 1, z: 1.1764029}
   m_Center: {x: 0.13315487, y: 0, z: -0.17218345}
+--- !u!114 &8528458972140231754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253592819455718142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c97bb8a1a23d554e82cc928420bc942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spanish: Pulsa dos veces espacio
+  english: Press space twice
+  galician: Preme space 2 veces
+  isButton: 0

@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &4370674342840672670
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487660751360072906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e63dbf250675a16498d55bea99402178, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &4370674342984825300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487660751505261696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e63dbf250675a16498d55bea99402178, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4370674341555263771
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +49,7 @@ GameObject:
   - component: {fileID: 4370674341555263774}
   - component: {fileID: 4370674341555263773}
   - component: {fileID: 4370674341555263772}
+  - component: {fileID: 6195195236469690927}
   m_Layer: 0
   m_Name: Enchufes
   m_TagString: Untagged
@@ -59,45 +98,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90e0d42dca80b34ba75f1ff319ab2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 0
+  audioSource: {fileID: 0}
+  clip: {fileID: 0}
   category: 1
---- !u!95 &4370674342840672670
-Animator:
-  serializedVersion: 3
+  father: {fileID: 0}
+  dissolveMat: {fileID: 0}
+  noiseStrength: 1.5
+  objectHeight: 1
+  maxHeight: 3
+  minHeight: -1.5
+  height: 0
+  mesh: {fileID: 0}
+  mesh2: {fileID: 0}
+--- !u!114 &6195195236469690927
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487660751360072906}
+  m_GameObject: {fileID: 4370674341555263771}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e63dbf250675a16498d55bea99402178, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &4370674342984825300
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487660751505261696}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e63dbf250675a16498d55bea99402178, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c97bb8a1a23d554e82cc928420bc942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spanish: 
+  english: 
+  galician: 
+  isButton: 0
 --- !u!1001 &4370674342840672667
 PrefabInstance:
   m_ObjectHideFlags: 0
