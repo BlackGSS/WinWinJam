@@ -100,17 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToHide: 0
   audioSource: {fileID: 0}
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 24dd206e8b391a4469e8ccaa9c19960f, type: 3}
   category: 1
   father: {fileID: 0}
-  dissolveMat: {fileID: 0}
-  noiseStrength: 1.5
-  objectHeight: 1
-  maxHeight: 3
-  minHeight: -1.5
-  height: 0
-  mesh: {fileID: 0}
-  mesh2: {fileID: 0}
 --- !u!114 &6195195236469690927
 MonoBehaviour:
   m_ObjectHideFlags: 0
