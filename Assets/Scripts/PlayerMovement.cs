@@ -36,12 +36,15 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] CharacterController controller;
 
-	private float directionY;
-	[SerializeField] Vector3 direction;
-	private bool canDoubleJump = false;
+	float directionY;
+	Vector3 direction;
+	bool canDoubleJump = false;
+
+	Vector3 nextPos;
 
 	[SerializeField] float fixZOffset = 0.05f;
 	bool fixingZ = false;
+	bool changingLevel;
 
 	//public LayerMask FloorMask, WallMask;
 	//public GameObject Bullet;
@@ -49,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
 	//private float FireRate = 0.2f;
 
 	public static Action<BodyPart> onBodyPartGotIt = (BodyPart bodypart) => { };
+	public static Action<Transform> onFallingFromLevel = (Transform point) => { };
+	public static Action onLevelArrive = () => { };
 
 	private bool LookRight = true;
 
@@ -58,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		currentJumpForce = minJumpForce;
 		onBodyPartGotIt += AddBodyPart;
+		onFallingFromLevel += FallingFromLevel;
+		onLevelArrive += LevelArrived;
 	}
 
 	private void Update()
@@ -70,10 +77,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		DirDetect();
 
-		if (!performingDash)
-			Movement();
-		else
-			DashMovement();
+		if (!changingLevel)
+		{
+			if (!performingDash)
+				Movement();
+			else
+				DashMovement();
+		}
 
 		//ShootSystem();
 	}
@@ -239,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
 				print(part);
 				head.SetActive(true);
 				headsetEquipment = true;
+
 				break;
 
 			case BodyPart.BOOTS:
@@ -260,9 +271,22 @@ public class PlayerMovement : MonoBehaviour
 
 				wireEquipment = true;
 				break;
-
-
 		}
+	}
+
+	private void FallingFromLevel(Transform point)
+	{
+		changingLevel = true;
+		nextPos = point.position;
+
+		transform.position = Vector3.Lerp(transform.position, nextPos, 1000f);
+
+		//StartCoroutine(GoingToLevel(point.position));
+	}
+
+	private void LevelArrived()
+	{
+		changingLevel = false;
 	}
 
 	//void OnTriggerEnter(Collider Col)
