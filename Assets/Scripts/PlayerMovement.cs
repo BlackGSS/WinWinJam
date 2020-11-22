@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] Dash dashSkill;
 
 	[Header("Equipment")]
-	[SerializeField] bool headsetEquipment;
-	[SerializeField] bool bootsEquipment;
+	public bool headsetEquipment;
+	public bool bootsEquipment;
 	[SerializeField] bool wireEquipment;
 
 	[Header("ObjetosActivar")]
