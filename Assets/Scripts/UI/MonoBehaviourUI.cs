@@ -6,7 +6,7 @@ using System;
 
 public class MonoBehaviourUI : MonoBehaviour
 {
-	[SerializeField] GameObject panelToShow;
+	public GameObject panelToShow;
 	[SerializeField] float timeToFade = 1f;
 	CanvasGroup fade;
 

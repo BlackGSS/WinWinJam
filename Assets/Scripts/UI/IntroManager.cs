@@ -9,17 +9,13 @@ public class IntroManager : MonoBehaviour
 
 	public int currentScene = 0;
 
-	private void Awake()
+	// Start is called before the first frame update
+	void Start()
 	{
 		for (int i = 0; i < intros.Length; i++)
 		{
 			intros[i].Init();
 		}
-	}
-
-	// Start is called before the first frame update
-	void Start()
-	{
 		StartCoroutine(DelayToIni());
 	}
 
@@ -39,7 +35,7 @@ public class IntroManager : MonoBehaviour
 
 	public void NextScene()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		intros[currentScene].Hide(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
 
 	}
 }

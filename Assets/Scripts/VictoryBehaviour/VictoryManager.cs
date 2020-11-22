@@ -6,6 +6,7 @@ using UnityEngine;
 public class VictoryManager : MonoBehaviour
 {
 	[SerializeField] VictoryData[] victories;
+	[SerializeField] GameObject resetGame;
 
 	public PlayerMovement player;
 
@@ -18,6 +19,9 @@ public class VictoryManager : MonoBehaviour
 
 	private void VictoryAchieved(int victoryID)
 	{
+
+		Instantiate(resetGame);
+
 		if (player.bootsEquipment)
 			victoryID = 1;
 
