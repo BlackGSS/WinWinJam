@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Collactable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float timeToHide;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Player")
+        {
+            ToastManager.Instance.SetText(GetComponent<CollectableLanguage>().GetCurrentText(), timeToHide);
+            gameObject.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        Destroy(gameObject);
     }
 }
